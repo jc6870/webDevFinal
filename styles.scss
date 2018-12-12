@@ -1,0 +1,123 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+$timing:(
+        slower: 2,
+        slow: 1.5,
+        medium: 1,
+        fast: 0.5
+);
+
+@each $key, $value in $timing{
+  .delay-ani-#{$key}{
+    animation-delay: #{$value}s
+  }
+}
+
+
+html,body{
+  height:100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  padding: 50px;
+  font-family: 'Varela Round', sans-serif;
+  /*   background-image: url("https://static1.squarespace.com/static/5251756de4b00c64c3d240ac/52517bdce4b085346bbe91d9/52519cdee4b0b9b7feaf8576/1381080288254/04_DarkDancer_RutSigurdardottir.jpg?format=1000w"); */
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+.main-area{
+  overflow: hidden;
+  height:100%;
+  width: 100%;
+  /*   padding: 100px 200px; */
+  background-image: url("https://static1.squarespace.com/static/5251756de4b00c64c3d240ac/52517bdce4b085346bbe91d9/52519cdee4b0b9b7feaf8576/1381080288254/04_DarkDancer_RutSigurdardottir.jpg?format=1000w");/*insert beautiful image of yours truly*/
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-areas:
+          "flag-area p p ."
+          "icon-area . . ."
+          "nav nav nav nav"
+;
+  grid-template-rows: 250px 200px 200px;
+  grid-template-columns: repeat(4, 1fr);
+
+}
+
+.logo-flag{
+  background-image: url(https://lh5.googleusercontent.com/QY4oYXK3cmzEWM8K6qNFUWNXAMGW63wterRakbdctMBi_61K6gMwtwsCQ5w8HFd-kGbgQxkO0--Etky-oBE=w2560-h1298);
+  grid-area: flag-area;
+}
+
+.logo-icon{
+  height: 75%;
+  width:75%;
+  grid-area: icon-area;
+}
+
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  grid-area: nav;
+}
+
+.button{
+  width: 10%; /*10% of the entire body*/
+  display: flex;
+  background: rgba(130, 130, 130, 0.75);
+  border: none;
+  color: white;
+  padding: 5px 25px;
+  margin: 0px 20px;
+  font-size: 12px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: white;
+  color: black;
+}
+
+p{
+  grid-area: p;
+  display:flex;
+  background: rgba(130, 130, 130, 0.75);
+  align-items: flex-end;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+#slide{ /*slide animation from the left*/
+  -webkit-animation: slide 1s forwards;
+}
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+  0% {opacity: 0;}
+}
+
+#fade-in{ /*just a normal fade in*/
+  -webkit-animation: fade-in 1s forwards;
+}
+
+@-webkit-keyframes fade-in{
+  0%{opacity:0;}
+
+}
